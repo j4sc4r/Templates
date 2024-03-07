@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+    webapp:
+      build: .
+      ports:
+        - "80:80"
+      volumes:
+        - .:/app
+        - /root/.ssh/key:/root/.ssh/key:ro
+      network_mode: host
+      environment:
+        SSH_KEY_PATH: "/root/.ssh/key"
